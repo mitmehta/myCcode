@@ -1,3 +1,4 @@
+/* Double link list: add at the beginning*/
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct node {
