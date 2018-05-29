@@ -18,31 +18,31 @@ public:
 
 int main()
 {
-single_llist sl;
-sl.head = NULL;
-char ch;
-cout << "operation on linked list......" <<endl;
-cout <<"Insert at the begining "<< endl;
-do{
-sl.insert_begin();
-cout <<endl;
-cout << "Do you want to add another node" <<endl;
-cin>>ch;
-} while((ch =='y')||(ch =='Y'));
-cout<<"displaying linked list "<<endl;
-sl.display();
+	single_llist sl;
+	sl.head = NULL;
+	char ch;
+	cout << "operation on linked list......" <<endl;
+	cout <<"Insert at the begining "<< endl;
+	do{
+		sl.insert_begin();
+		cout <<endl;
+		cout << "Do you want to add another node" <<endl;
+		cin>>ch;
+	} while((ch =='y')||(ch =='Y'));
+	cout<<"displaying linked list "<<endl;
+	sl.display();
 }
 
 Node *single_llist::createNode(int value)
 {
 	Node *newnode;
 	newnode = new(Node);
+
 	if(newnode == NULL) {
 		cout << "memory not allocated" <<endl;
 		return 0;
 	} else {
 		newnode->data = value;
-		newnode->next = NULL;
 		return newnode;
 	}
 }
@@ -51,12 +51,16 @@ void single_llist::insert_begin()
 {
 	int value;
 	Node *temp ;
+
+	cout << "Enter the data"<<endl;
+	cin>>value;
 	temp = createNode(value);
 	if(head == NULL) {
+		temp->next = head;
 		head = temp;
 	} else {
-		temp->next = head->next;
-		head->next = temp;
+		temp->next = head;
+		head = temp;
 	}
 }
 
