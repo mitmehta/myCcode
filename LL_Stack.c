@@ -12,6 +12,11 @@ void push(Node **head)
 
 	Node *temp;
 	temp = (Node *)malloc(sizeof (Node));
+
+	if(temp == NULL) {
+		printf("Stack overflow\n");
+		return;
+	}
 	printf("Enter the data..\n");
 	scanf("%d", &temp->data);
 	if(temp == NULL)
@@ -23,6 +28,10 @@ void push(Node **head)
 int pop(Node **head)
 {
 	Node *temp = *head;
+	if(*head == NULL) {
+		printf("Stack underflow\n");
+		return 0;
+	}
 	*head = (*head)->next;
 	printf("Popped elemt is %d\n", temp->data);
 	free(temp);
