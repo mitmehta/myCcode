@@ -14,6 +14,7 @@ bool Isempty(Node *top)
 	return (top == NULL) ? 1 : 0;
 }
 
+
 Node *push(Node **head, int ele)
 {
 	Node *temp = (Node *)malloc(sizeof (Node));
