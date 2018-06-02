@@ -28,11 +28,9 @@ Node_t* CreateLL_AddMiddle(Node_t **head)
 /*function used to reverse the link list */
 
 void ReverseLL(Node_t **head) {
-	Node_t *first;
-	Node_t *second;
-	first =*head;
-	second = first->next;
-	if(second == NULL)
+	Node_t *first = *head;
+	Node_t *second = first->next;
+	if(head == NULL || second == NULL)
 		return;
 	ReverseLL(&second);
 	first->next->next = first;
