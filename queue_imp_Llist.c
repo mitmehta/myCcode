@@ -31,24 +31,31 @@ Qnode *newnode(int key)
 
 void enqueue(Queue *q, int data)
 {
+	//Create a new Link List node
 	Qnode *temp = newnode(data);
+
+	//If queue is empty, then newnode is both front and rear
 	if(q->rear == NULL) {
 		q->front = q->rear = temp;
 		printf("%d is the queued\n", data);
 		return;
 	}
+
+	//Add node at the end of the queue.
 	q->rear->next = temp;
-	q->rear = temp;
 	printf("%d is the queued\n", data);
 }
 
 Qnode *dequeue(Queue *q)
 {
+	//If front is NULL, then return
 	if(q->front == NULL)
 		return 0;
+
 	Qnode *temp = q->front;
 	q->front = q->front->next;
 
+	//If front become NULL, change rear also as NULL
 	if(q->front == NULL)
 		q->rear = NULL;
 	return temp;
