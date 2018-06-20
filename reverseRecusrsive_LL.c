@@ -1,4 +1,5 @@
 /* Reverse the Linked-list using recursion*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -33,6 +34,7 @@ void ReverseLL(Node_t **head) {
 	if(head == NULL || second == NULL)
 		return;
 	ReverseLL(&second);
+	printf("hello\n");
 	first->next->next = first;
 	first->next = NULL;
 	*head = second;
@@ -46,7 +48,6 @@ void PrintLL(Node_t *head) {
 		return (PrintLL(head->next));
 	}
 }
-
 
 int main()
 {
