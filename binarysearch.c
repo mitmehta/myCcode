@@ -8,10 +8,10 @@ int binarySearchArray(int arr[], int start, int end, int key)
 		int mid = start + (end-start)/2;
 		if(arr[mid] == key)
 			return mid;
-		if(arr[mid] < mid)
+		if(arr[mid] < key)
 			return(binarySearchArray(arr, mid+1, end, key));
-		if(arr[mid] > mid)
-			return(binarySearchArray(arr, start, mid+1, key));
+		if(arr[mid] > key)
+			return(binarySearchArray(arr, start, mid-1, key));
 	}
 	return -1;
 }
@@ -25,7 +25,7 @@ void printArray(int arr[], int size)
 
 int main()
 {
-	int arr[] = {1, 5, 7, 8, 9, 14, 15, 21, 18};
+	int arr[] = {1, 5, 7, 8, 9, 14, 15, 21, 28};
 	int size = sizeof (arr)/ sizeof(arr[0]);
 	int key;
 	printArray(arr, size);
